@@ -41,6 +41,15 @@ TOOLS = [
             "required": [],
         },
     },
+    {
+        "name": "get_cobit_data",
+        "description": "Returns detailed information about COBIT (Control Objectives for Information and Related Technologies) — the ISACA framework for governance and management of enterprise IT, including COBIT 2019, core components, governance vs. management, and key objectives.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+        },
+    },
 ]
 
 
@@ -56,6 +65,8 @@ def run_tool(name: str) -> dict:
         text = read_data_file("about_isaca.txt")
     elif name == "about_cisa":
         text = read_data_file("about_cisa.txt")
+    elif name == "get_cobit_data":
+        text = read_data_file("Cobit.txt")
     else:
         return None
     return {"type": "text", "text": text}

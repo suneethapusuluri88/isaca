@@ -1,0 +1,62 @@
+ISACA's COBIT (Control Objectives for Information and Related Technologies) is a globally recognized framework for governance and management of enterprise information and technology (I&T). It helps organizations ensure that technology supports business goals, manages risk, optimizes resources, and delivers value.
+
+What is COBIT?
+
+COBIT provides a structured set of principles, processes, and best practices for governing and managing IT across an enterprise. It is used by:
+
+IT managers
+CIOs and CTOs
+Internal and external auditors
+Risk managers
+Security professionals
+Business executives
+
+The framework bridges the gap between business objectives and IT operations.
+
+Main Objectives
+
+COBIT helps organizations:
+
+Align IT strategy with business strategy
+Deliver value from IT investments
+Manage IT-related risks
+Optimize resources (people, applications, infrastructure, data)
+Measure and improve IT performance
+Ensure compliance with laws and regulations
+COBIT 2019
+
+The latest major version is COBIT 2019, which is more flexible and customizable than earlier versions.
+
+It introduces:
+
+Governance and management objectives
+Design factors for tailoring the governance system
+Focus areas (such as cybersecurity, cloud, DevOps, and digital transformation)
+Performance management using capability and maturity concepts
+Core Components
+
+A COBIT governance system consists of several components:
+
+Processes
+Activities that achieve governance and management objectives.
+Organizational Structures
+Decision-making bodies and reporting relationships.
+Policies and Procedures
+Rules that guide IT operations.
+Information
+Data required to support governance.
+Culture, Ethics, and Behavior
+Encourages responsible IT usage.
+People, Skills, and Competencies
+Ensures employees have appropriate capabilities.
+Services, Infrastructure, and Applications
+The technology assets supporting the business.
+Governance vs. Management
+
+COBIT distinguishes between governance and management:
+
+Governance	Management
+Evaluates stakeholder needs	Plans and executes activities
+Sets direction	Implements strategy
+Monitors performance	Operates day-to-day IT
+Typically led	
