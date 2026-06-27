@@ -50,6 +50,15 @@ TOOLS = [
             "required": [],
         },
     },
+    {
+        "name": "get_data_certification_exam_prep",
+        "description": "Returns CISA exam preparation resources including official study materials, exam domain breakdowns, study tips, exam format, and CPE requirements.",
+        "inputSchema": {
+            "type": "object",
+            "properties": {},
+            "required": [],
+        },
+    },
 ]
 
 
@@ -67,6 +76,8 @@ def run_tool(name: str) -> dict:
         text = read_data_file("about_cisa.txt")
     elif name == "get_cobit_data":
         text = read_data_file("Cobit.txt")
+    elif name == "get_data_certification_exam_prep":
+        text = read_data_file("exam_prep.txt")
     else:
         return None
     return {"type": "text", "text": text}
