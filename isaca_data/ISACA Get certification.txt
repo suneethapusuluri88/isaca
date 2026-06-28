@@ -1,0 +1,32 @@
+import requests
+from bs4 import BeautifulSoup
+
+
+def get_certifications():
+    """Retrieve ISACA certification names from the ISACA credentialing website.
+
+    There is no public ISACA API that provides a get_certifications endpoint,
+    so this function scrapes the certification listing page.
+    """
+    url = "https://www.isaca.org/credentialing"
+    response = requests.get(url, timeout=10)
+    response.raise_for_status()
+
+    soup = BeautifulSoup(response.text, "html.parser")
+
+    # Find likely certification headings on the credentialing page.
+    certifications = []
+    for heading in soup.select("h2, h3, h4, .credential-name, .card-title"):  # include common heading selectors
+        text = heading.get_text(strip=True)
+        if not text:
+            continue
+        normalized = text.replace("\n", " ").strip()
+        if normalized and normalized not in certifications:
+            certifications.append(normalized)
+
+    # Fallback: look for known ISACA certifications if page structure is different.
+    fallback = ["CISA", "CISM", "CRISC", "CGEIT", "CDPSE"]
+    if not certifications:
+        certifications = fallback
+
+    return certifications
