@@ -1,0 +1,71 @@
+{
+  "disclaimer": "This checklist is illustrative and ISACA-aligned but should be tailored to the specific scope, risk, and environment of the engagement. For educational use only.",
+  "aliases": {
+    "cloud security": ["cloud security", "cloud", "csp", "saas", "iaas", "paas"],
+    "access management": ["access management", "access", "iam", "identity", "authentication", "rbac", "privileged"],
+    "data privacy": ["data privacy", "privacy", "gdpr", "pii", "data protection"],
+    "network security": ["network security", "network", "firewall", "perimeter", "segmentation"]
+  },
+  "checklists": {
+    "cloud security": [
+      {"step": "Cloud governance & strategy", "objective": "Verify cloud adoption aligns with governance, risk appetite, and documented strategy."},
+      {"step": "Shared responsibility model", "objective": "Confirm the CSP/customer responsibility split is documented and understood."},
+      {"step": "Data classification & encryption", "objective": "Verify data is classified and encrypted at rest and in transit."},
+      {"step": "Identity & access for cloud resources", "objective": "Assess IAM roles, least privilege, and federation for cloud consoles/APIs."},
+      {"step": "Network controls", "objective": "Review security groups, segmentation, and exposure of public endpoints."},
+      {"step": "Logging & monitoring", "objective": "Confirm cloud audit logs, alerting, and incident response coverage."},
+      {"step": "CSP assurance", "objective": "Review CSP certifications (SOC 2, ISO 27001) and contractual security obligations."},
+      {"step": "Backup & resilience", "objective": "Assess backup, disaster recovery, and continuity for cloud workloads."},
+      {"step": "Configuration management", "objective": "Evaluate baseline configs and cloud security posture management (CSPM)."},
+      {"step": "Data residency & sovereignty", "objective": "Verify compliance with data location and regulatory requirements."}
+    ],
+    "access management": [
+      {"step": "Access policy & standards", "objective": "Confirm an approved access control policy exists and is current."},
+      {"step": "Provisioning & de-provisioning", "objective": "Test joiner/mover/leaver processes for timeliness and approval."},
+      {"step": "Least privilege & RBAC", "objective": "Assess role design and that access maps to job function."},
+      {"step": "Privileged access management", "objective": "Review controls over admin/privileged accounts (vaulting, session monitoring)."},
+      {"step": "Access recertification", "objective": "Verify periodic access reviews are performed and exceptions remediated."},
+      {"step": "Authentication controls", "objective": "Assess MFA coverage and password/credential policy enforcement."},
+      {"step": "Segregation of duties", "objective": "Identify and evaluate SoD conflicts and compensating controls."},
+      {"step": "Access logging & monitoring", "objective": "Confirm authentication and access events are logged and reviewed."},
+      {"step": "Dormant & orphaned accounts", "objective": "Test for stale, shared, or unowned accounts."},
+      {"step": "Third-party access", "objective": "Review vendor/contractor access scope, approval, and removal."}
+    ],
+    "data privacy": [
+      {"step": "Privacy policy & regulatory mapping", "objective": "Confirm policies map to applicable laws (e.g. GDPR, local privacy acts)."},
+      {"step": "Data inventory & flow mapping", "objective": "Verify personal data is inventoried and data flows documented."},
+      {"step": "Consent management", "objective": "Assess capture, storage, and withdrawal of consent."},
+      {"step": "Data subject rights", "objective": "Test processes for access, correction, and erasure requests."},
+      {"step": "Data minimization & retention", "objective": "Verify retention schedules and disposal of personal data."},
+      {"step": "Protection controls", "objective": "Assess encryption, masking, and access restrictions on personal data."},
+      {"step": "Processor agreements", "objective": "Review third-party data processing agreements and safeguards."},
+      {"step": "Breach notification", "objective": "Evaluate breach detection and regulatory notification procedures."},
+      {"step": "Privacy by design", "objective": "Confirm privacy is considered in system/change design."},
+      {"step": "Privacy impact assessments", "objective": "Verify DPIAs are performed for high-risk processing."}
+    ],
+    "network security": [
+      {"step": "Network architecture & policy", "objective": "Confirm an approved network security architecture and standards."},
+      {"step": "Firewall management", "objective": "Review firewall rules, change control, and periodic rule reviews."},
+      {"step": "Segmentation", "objective": "Assess segmentation between trust zones and critical assets."},
+      {"step": "Intrusion detection/prevention", "objective": "Verify IDS/IPS deployment and tuning."},
+      {"step": "Remote access & VPN", "objective": "Assess secure remote access, MFA, and split-tunneling controls."},
+      {"step": "Wireless security", "objective": "Review wireless authentication, encryption, and rogue AP detection."},
+      {"step": "Vulnerability & patch management", "objective": "Evaluate scanning cadence and remediation SLAs."},
+      {"step": "Monitoring & logging", "objective": "Confirm network telemetry is collected, retained, and reviewed."},
+      {"step": "DDoS & availability", "objective": "Assess protections for availability of network services."},
+      {"step": "Device hardening", "objective": "Review baseline hardening of routers, switches, and network appliances."}
+    ],
+    "general": [
+      {"step": "Governance & policy", "objective": "Confirm approved policies and standards exist for the domain."},
+      {"step": "Roles & responsibilities", "objective": "Verify ownership and accountability are defined."},
+      {"step": "Risk assessment", "objective": "Assess whether domain risks are identified and rated."},
+      {"step": "Control design & operation", "objective": "Evaluate key controls for design and operating effectiveness."},
+      {"step": "Logging & monitoring", "objective": "Confirm relevant activity is logged, alerted, and reviewed."},
+      {"step": "Segregation of duties", "objective": "Identify SoD conflicts and compensating controls."},
+      {"step": "Compliance", "objective": "Assess alignment with applicable laws, regulations, and frameworks (e.g. COBIT)."},
+      {"step": "Incident management", "objective": "Review detection, response, and escalation processes."},
+      {"step": "Change management", "objective": "Verify changes are authorized, tested, and documented."},
+      {"step": "Documentation & evidence", "objective": "Confirm records are retained to support audit evidence."}
+    ]
+  }
+}

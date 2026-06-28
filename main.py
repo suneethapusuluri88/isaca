@@ -69,7 +69,56 @@ def read_data_file(filename: str) -> str:
     return path.read_text(encoding="utf-8")
 
 
-def run_tool(name: str) -> dict:
+# Audit-checklist data lives alongside the other tool data under isaca_data/.
+_AUDIT_DATA = json.loads(read_data_file("audit_checklists.json"))
+
+# Educational disclaimer attached to every checklist response.
+CHECKLIST_DISCLAIMER = _AUDIT_DATA["disclaimer"]
+
+# Keyword/alias -> canonical domain. Used for fuzzy (non-exact) matching.
+DOMAIN_ALIASES = _AUDIT_DATA["aliases"]
+
+# Ordered audit steps per domain (plus the "general" fallback).
+AUDIT_CHECKLISTS = _AUDIT_DATA["checklists"]
+
+
+def match_domain(domain: str) -> tuple:
+    """Normalize the input and match it to a known domain via keyword/alias
+    matching. Returns (canonical_domain, matched) where matched is False when
+    the general fallback is used."""
+    normalized = " ".join(domain.lower().split())
+    for canonical, aliases in DOMAIN_ALIASES.items():
+        for alias in aliases:
+            if alias in normalized:
+                return canonical, True
+    return "general", False
+
+
+def generate_audit_checklist(arguments: dict) -> dict:
+    """Build the structured audit-checklist response for a control domain."""
+    domain = arguments.get("domain")
+    if not isinstance(domain, str) or not domain.strip():
+        return {
+            "type": "text",
+            "text": json.dumps({
+                "error": "Invalid input: 'domain' must be a non-empty string, "
+                         "e.g. \"cloud security\" or \"access management\".",
+            }, indent=2),
+        }
+
+    canonical, matched = match_domain(domain)
+    payload = {
+        "domain": canonical,
+        "requested_domain": domain.strip(),
+        "matched": matched,
+        "steps": AUDIT_CHECKLISTS[canonical],
+        "note": CHECKLIST_DISCLAIMER,
+    }
+    return {"type": "text", "text": json.dumps(payload, indent=2)}
+
+
+def run_tool(name: str, arguments: dict = None) -> dict:
+    arguments = arguments or {}
     if name == "about_isaca":
         text = read_data_file("about_isaca.txt")
     elif name == "about_cisa":
@@ -150,7 +199,8 @@ async def mcp_tool_call_handler(request: Request):
 
     if method == "tools/call":
         name = params.get("name")
-        result = run_tool(name)
+        arguments = params.get("arguments", {})
+        result = run_tool(name, arguments)
 
         if result is None:
             return JSONResponse({
